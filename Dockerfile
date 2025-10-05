@@ -31,5 +31,8 @@ COPY ./app /code/app
 # Set PYTHONPATH so Python can find modules in the app directory
 ENV PYTHONPATH="/code/app:$PYTHONPATH"
 
-# Command to run the application
-CMD ["uv", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+# Expose port 8000
+EXPOSE 8000
+
+# Command to run the application on port 8000
+CMD ["uv", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
